@@ -127,7 +127,7 @@ void main() {
 
       InAppWebViewGroupOptions? options = await controller.getOptions();
       expect(options, isNotNull);
-      expect(options!.crossPlatform.javaScriptEnabled, false);
+      expect(options.crossPlatform.javaScriptEnabled, false);
 
       await controller.setOptions(
           options: InAppWebViewGroupOptions(
@@ -135,7 +135,7 @@ void main() {
 
       options = await controller.getOptions();
       expect(options, isNotNull);
-      expect(options!.crossPlatform.javaScriptEnabled, true);
+      expect(options.crossPlatform.javaScriptEnabled, true);
     });
 
     group('javascript code evaluation', () {
@@ -253,14 +253,14 @@ void main() {
             functionBody: functionBody,
             arguments: {'x': 49, 'y': 'error message'});
         expect(result, isNotNull);
-        expect(result!.error, isNull);
+        expect(result.error, isNull);
         expect(result.value, 49);
 
         result = await controller.callAsyncJavaScript(
             functionBody: functionBody,
             arguments: {'x': -49, 'y': 'error message'});
         expect(result, isNotNull);
-        expect(result!.value, isNull);
+        expect(result.value, isNull);
         expect(result.error, 'error message');
       });
 
@@ -295,14 +295,14 @@ void main() {
         var result = await controller.callAsyncJavaScript(
             functionBody: "return window.foo;");
         expect(result, isNotNull);
-        expect(result!.error, isNull);
+        expect(result.error, isNull);
         expect(result.value, isNull);
 
         result = await controller.callAsyncJavaScript(
             functionBody: "return window.foo;",
             contentWorld: ContentWorld.world(name: "custom-world"));
         expect(result, isNotNull);
-        expect(result!.error, isNull);
+        expect(result.error, isNull);
         expect(result.value, 49);
       });
     });
@@ -323,7 +323,7 @@ void main() {
               controllerCompleter.complete(controller);
             },
             onLoadStop: (controller, url) {
-              pageLoads.add(url!.toString());
+              pageLoads.add(url.toString());
             },
           ),
         ),
@@ -360,10 +360,10 @@ void main() {
             initialOptions: InAppWebViewGroupOptions(
                 crossPlatform: InAppWebViewOptions(javaScriptEnabled: true)),
             onLoadStart: (controller, url) {
-              pageStarts.add(url!.toString());
+              pageStarts.add(url.toString());
             },
             onLoadStop: (controller, url) {
-              pageLoads.add(url!.toString());
+              pageLoads.add(url.toString());
             },
           ),
         ),
@@ -397,7 +397,7 @@ void main() {
       late File fileJs;
 
       setUpAll(() async {
-        appSupportDir = (await getApplicationSupportDirectory())!;
+        appSupportDir = (await getApplicationSupportDirectory());
 
         final Directory htmlFolder = Directory('${appSupportDir.path}/html/');
         if (!await htmlFolder.exists()) {
@@ -1280,7 +1280,7 @@ void main() {
                     : NavigationActionPolicy.ALLOW;
               },
               onLoadStop: (controller, url) {
-                pageLoads.add(url!.toString());
+                pageLoads.add(url.toString());
               },
             ),
           ),
@@ -1329,7 +1329,7 @@ void main() {
                     : NavigationActionPolicy.CANCEL;
               },
               onLoadStop: (controller, url) {
-                pageLoads.add(url!.toString());
+                pageLoads.add(url.toString());
               },
             ),
           ),
@@ -1386,7 +1386,7 @@ void main() {
                     : NavigationActionPolicy.ALLOW;
               },
               onLoadStop: (controller, url) {
-                pageLoads.add(url!.toString());
+                pageLoads.add(url.toString());
               },
             ),
           ),
@@ -1438,7 +1438,7 @@ void main() {
                 return action;
               },
               onLoadStop: (controller, url) {
-                pageLoads.add(url!.toString());
+                pageLoads.add(url.toString());
               },
             ),
           ),

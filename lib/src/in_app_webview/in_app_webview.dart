@@ -368,7 +368,7 @@ class _InAppWebViewState extends State<InAppWebView> {
   Widget build(BuildContext context) {
     if (defaultTargetPlatform == TargetPlatform.android) {
       var useHybridComposition =
-          widget.initialOptions?.android.useHybridComposition ?? false;
+          widget.initialOptions?.android?.useHybridComposition ?? false;
 
       if (!useHybridComposition && widget.pullToRefreshController != null) {
         throw new Exception(
@@ -404,10 +404,10 @@ class _InAppWebViewState extends State<InAppWebView> {
                 'contextMenu': widget.contextMenu?.toMap() ?? {},
                 'windowId': widget.windowId,
                 'initialUserScripts':
-                    widget.initialUserScripts?.map((e) => e.toMap()).toList() ??
+                    widget.initialUserScripts?.map((e) => e.toMap())?.toList() ??
                         [],
                 'pullToRefreshOptions':
-                    widget.pullToRefreshController?.options.toMap() ??
+                    widget.pullToRefreshController?.options?.toMap() ??
                         PullToRefreshOptions(enabled: false).toMap()
               },
               creationParamsCodec: const StandardMessageCodec(),
@@ -434,9 +434,9 @@ class _InAppWebViewState extends State<InAppWebView> {
             'contextMenu': widget.contextMenu?.toMap() ?? {},
             'windowId': widget.windowId,
             'initialUserScripts':
-                widget.initialUserScripts?.map((e) => e.toMap()).toList() ?? [],
+                widget.initialUserScripts?.map((e) => e.toMap())?.toList() ?? [],
             'pullToRefreshOptions':
-                widget.pullToRefreshController?.options.toMap() ??
+                widget.pullToRefreshController?.options?.toMap() ??
                     PullToRefreshOptions(enabled: false).toMap()
           },
           creationParamsCodec: const StandardMessageCodec(),
@@ -457,9 +457,9 @@ class _InAppWebViewState extends State<InAppWebView> {
           'contextMenu': widget.contextMenu?.toMap() ?? {},
           'windowId': widget.windowId,
           'initialUserScripts':
-              widget.initialUserScripts?.map((e) => e.toMap()).toList() ?? [],
+              widget.initialUserScripts?.map((e) => e.toMap())?.toList() ?? [],
           'pullToRefreshOptions':
-              widget.pullToRefreshController?.options.toMap() ??
+              widget.pullToRefreshController?.options?.toMap() ??
                   PullToRefreshOptions(enabled: false).toMap()
         },
         creationParamsCodec: const StandardMessageCodec(),

@@ -111,11 +111,11 @@ class InAppBrowser {
     args.putIfAbsent('contextMenu', () => contextMenu?.toMap()  ??  {});
     args.putIfAbsent('windowId', () => windowId);
     args.putIfAbsent('initialUserScripts',
-        () => initialUserScripts?.map((e) => e.toMap()).toList()  ??  []);
+        () => initialUserScripts?.map((e) => e.toMap())?.toList()  ??  []);
     args.putIfAbsent(
         'pullToRefreshOptions',
         () =>
-            pullToRefreshController?.options.toMap()   ??
+            pullToRefreshController?.options?.toMap()   ??
             PullToRefreshOptions(enabled: false).toMap());
     await _sharedChannel.invokeMethod('open', args);
   }
@@ -169,11 +169,11 @@ class InAppBrowser {
     args.putIfAbsent('contextMenu', () => contextMenu?.toMap()  ??  {});
     args.putIfAbsent('windowId', () => windowId);
     args.putIfAbsent('initialUserScripts',
-        () => initialUserScripts?.map((e) => e.toMap()).toList()  ??  []);
+        () => initialUserScripts?.map((e) => e.toMap())?.toList()  ??  []);
     args.putIfAbsent(
         'pullToRefreshOptions',
         () =>
-            pullToRefreshController?.options.toMap()   ??
+            pullToRefreshController?.options?.toMap()   ??
             PullToRefreshOptions(enabled: false).toMap());
     await _sharedChannel.invokeMethod('open', args);
   }
@@ -209,11 +209,11 @@ class InAppBrowser {
     args.putIfAbsent('contextMenu', () => contextMenu?.toMap() ??   {});
     args.putIfAbsent('windowId', () => windowId);
     args.putIfAbsent('initialUserScripts',
-        () => initialUserScripts?.map((e) => e.toMap()).toList()  ??  []);
+        () => initialUserScripts?.map((e) => e.toMap())?.toList()  ??  []);
     args.putIfAbsent(
         'pullToRefreshOptions',
         () =>
-            pullToRefreshController?.options.toMap()   ??
+            pullToRefreshController?.options?.toMap()   ??
             PullToRefreshOptions(enabled: false).toMap());
     await _sharedChannel.invokeMethod('open', args);
   }

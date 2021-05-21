@@ -136,7 +136,7 @@ class WebMessage {
   Map<String, dynamic> toMap() {
     return {
       "data": this.data,
-      "ports": this.ports?.map((e) => e.toMap()).toList(),
+      "ports": this.ports?.map((e) => e.toMap())?.toList(),
     };
   }
 
